@@ -13,11 +13,15 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow-x: hidden;
+            background-image: url('https://page.gensparksite.com/v1/base64_upload/108f760e3d2b234165bf25cd5ce3ce61');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #1a1a2e;
         }
 
         .background-container {
@@ -26,12 +30,31 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-image: url('https://page.gensparksite.com/v1/base64_upload/108f760e3d2b234165bf25cd5ce3ce61');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #000;
-            z-index: 1;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+
+        .background-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.6; }
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: perspective(1000px) rotateX(2deg) scale(1); }
+            50% { transform: perspective(1000px) rotateX(2deg) scale(1.05); }
         }
 
         .cta-container {
@@ -41,7 +64,6 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            margin-top: 189px; /* Desktop: move down 5cm */
         }
 
         .cta-button {
@@ -49,15 +71,15 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 36px;
+            padding: 11px 36px;
             background: linear-gradient(135deg, #FFE135 0%, #FFA500 50%, #FF8C00 100%);
             border: none;
-            border-radius: 15px;
+            border-radius: 9px;
             font-family: 'Poppins', sans-serif;
             font-size: 15px;
             font-weight: 800;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -66,26 +88,14 @@
             
             /* Multi-layer borders */
             box-shadow: 
-                0 0 0 3px #2a2a2a,
-                0 0 0 5px #FFD700,
-                0 6px 15px rgba(0, 0, 0, 0.4),
-                inset 0 2px 0 rgba(255, 255, 255, 0.3),
-                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+                0 0 0 2px #2a2a2a,
+                0 0 0 4px #FFD700,
+                0 5px 12px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
             
-            /* 3D effect */
-            transform: perspective(1000px) rotateX(2deg);
-            
-            /* Breathing animation */
-            animation: breathe 2s ease-in-out infinite;
-        }
-
-        @keyframes breathe {
-            0%, 100% {
-                transform: perspective(1000px) rotateX(2deg) scale(1);
-            }
-            50% {
-                transform: perspective(1000px) rotateX(2deg) scale(1.05);
-            }
+            /* 3D effect with breathing animation */
+            animation: breathe 3s ease-in-out infinite;
         }
 
         .cta-button::before {
@@ -96,39 +106,40 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
-            border-radius: 15px;
+            border-radius: 9px;
             pointer-events: none;
         }
 
         .cta-button:hover {
-            transform: perspective(1000px) rotateX(2deg) translateY(-2px) scale(1.05);
+            animation: breathe 3s ease-in-out infinite;
+            transform: perspective(1000px) rotateX(2deg) translateY(-1px) scale(1.02);
             box-shadow: 
-                0 0 0 3px #2a2a2a,
-                0 0 0 5px #FFD700,
-                0 0 20px rgba(255, 215, 0, 0.6),
-                0 8px 20px rgba(0, 0, 0, 0.5),
-                inset 0 2px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+                0 0 0 2px #2a2a2a,
+                0 0 0 4px #FFD700,
+                0 0 12px rgba(255, 215, 0, 0.6),
+                0 7px 15px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
             
             background: linear-gradient(135deg, #FFED4E 0%, #FFB500 50%, #FF9500 100%);
-            animation: none;
         }
 
         .cta-button:active {
-            transform: perspective(1000px) rotateX(2deg) translateY(1px) scale(1.02);
+            animation: breathe 3s ease-in-out infinite;
+            transform: perspective(1000px) rotateX(2deg) translateY(1px) scale(0.98);
             box-shadow: 
-                0 0 0 3px #2a2a2a,
-                0 0 0 5px #FFD700,
-                0 4px 10px rgba(0, 0, 0, 0.3),
-                inset 0 2px 0 rgba(255, 255, 255, 0.2),
+                0 0 0 2px #2a2a2a,
+                0 0 0 4px #FFD700,
+                0 2px 8px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
                 inset 0 -1px 0 rgba(0, 0, 0, 0.3);
         }
 
         .gift-icon {
-            font-size: 18px;
-            margin: 0 8px;
+            font-size: 17px;
+            margin: 0 7px;
             animation: bounce 2s infinite;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
         }
 
         .gift-icon:first-child {
@@ -144,7 +155,7 @@
                 transform: translateY(0);
             }
             40% {
-                transform: translateY(-4px);
+                transform: translateY(-5px);
             }
             60% {
                 transform: translateY(-2px);
@@ -153,41 +164,37 @@
 
         .button-text {
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
             white-space: nowrap;
         }
 
         /* Mobile responsiveness */
         @media (max-width: 768px) {
-            .cta-container {
-                margin-top: 151px; /* Mobile: move down 4cm */
-            }
-            
             .cta-button {
-                min-width: 230px; /* 20% larger than desktop */
-                height: 50px;
-                font-size: 18px;
-                padding: 15px 40px;
+                min-width: 168px;
+                height: 36px;
+                font-size: 12px;
+                padding: 9px 24px;
             }
             
             .gift-icon {
-                font-size: 22px;
-                margin: 0 10px;
+                font-size: 14px;
+                margin: 0 5px;
             }
         }
 
         @media (max-width: 480px) {
             .cta-button {
-                min-width: 220px;
-                height: 48px;
-                font-size: 16px;
-                padding: 12px 35px;
+                min-width: 150px;
+                height: 33px;
+                font-size: 11px;
+                padding: 7px 18px;
             }
             
             .gift-icon {
-                font-size: 20px;
-                margin: 0 8px;
+                font-size: 12px;
+                margin: 0 4px;
             }
         }
     </style>
@@ -205,27 +212,32 @@
 
     <script>
         function handleCTAClick(event) {
-            console.log('CTA button clicked - Get RM10 Now!');
+            // Add click handling logic here
+            console.log('CTA button clicked - Redirecting to YES2WIN Official!');
             
-            // Add visual feedback
-            const button = event.target.closest('.cta-button');
-            button.style.transform = 'perspective(1000px) rotateX(2deg) translateY(1px) scale(1.02)';
+            // Optional: Add some visual feedback before redirect
+            const button = event.currentTarget;
+            button.style.transform = 'perspective(1000px) rotateX(2deg) translateY(1px) scale(0.98)';
             
             setTimeout(() => {
-                button.style.transform = '';
+                button.style.transform = 'perspective(1000px) rotateX(2deg) translateY(-1px) scale(1.02)';
             }, 150);
+            
+            // The link will naturally redirect due to href attribute
         }
 
-        // Add interactive effects
+        // Add some interactive sparkle effects
         document.addEventListener('DOMContentLoaded', function() {
             const button = document.querySelector('.cta-button');
             
             button.addEventListener('mouseenter', function() {
-                this.style.animation = 'none';
+                // Add sparkle effect on hover
+                this.style.animationPlayState = 'running';
             });
             
             button.addEventListener('mouseleave', function() {
-                this.style.animation = 'breathe 2s ease-in-out infinite';
+                // Ensure animation continues
+                this.style.animationPlayState = 'running';
             });
         });
     </script>
