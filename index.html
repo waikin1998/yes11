@@ -64,8 +64,13 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            /* Desktop version: move down 8cm (302px) */
-            margin-top: 302px;
+        }
+
+        /* Desktop version - move down 10cm total */
+        @media (min-width: 769px) {
+            .cta-container {
+                transform: translateY(378px);
+            }
         }
 
         .cta-button {
@@ -171,28 +176,12 @@
             white-space: nowrap;
         }
 
-        /* Mobile responsiveness */
+        /* Mobile responsiveness - 20% larger and move down 10cm total */
         @media (max-width: 768px) {
             .cta-container {
-                /* Mobile version: move down 9cm (340px) */
-                margin-top: 340px;
+                transform: translateY(378px);
             }
             
-            .cta-button {
-                /* Mobile version: enlarge by 20% */
-                min-width: 230px; /* 192px * 1.2 = 230px */
-                height: 50px; /* 42px * 1.2 = 50px */
-                font-size: 18px; /* 15px * 1.2 = 18px */
-                padding: 13px 43px; /* 11px * 1.2 = 13px, 36px * 1.2 = 43px */
-            }
-            
-            .gift-icon {
-                font-size: 20px; /* 17px * 1.2 = 20px */
-                margin: 0 8px; /* 7px * 1.2 = 8px */
-            }
-        }
-
-        @media (max-width: 480px) {
             .cta-button {
                 min-width: 230px;
                 height: 50px;
@@ -203,6 +192,24 @@
             .gift-icon {
                 font-size: 20px;
                 margin: 0 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-container {
+                transform: translateY(378px);
+            }
+            
+            .cta-button {
+                min-width: 210px;
+                height: 46px;
+                font-size: 16px;
+                padding: 11px 38px;
+            }
+            
+            .gift-icon {
+                font-size: 18px;
+                margin: 0 7px;
             }
         }
     </style>
