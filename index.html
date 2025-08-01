@@ -64,6 +64,8 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            /* Desktop version: move down 8cm (302px) */
+            margin-top: 302px;
         }
 
         .cta-button {
@@ -171,30 +173,36 @@
 
         /* Mobile responsiveness */
         @media (max-width: 768px) {
+            .cta-container {
+                /* Mobile version: move down 9cm (340px) */
+                margin-top: 340px;
+            }
+            
             .cta-button {
-                min-width: 168px;
-                height: 36px;
-                font-size: 12px;
-                padding: 9px 24px;
+                /* Mobile version: enlarge by 20% */
+                min-width: 230px; /* 192px * 1.2 = 230px */
+                height: 50px; /* 42px * 1.2 = 50px */
+                font-size: 18px; /* 15px * 1.2 = 18px */
+                padding: 13px 43px; /* 11px * 1.2 = 13px, 36px * 1.2 = 43px */
             }
             
             .gift-icon {
-                font-size: 14px;
-                margin: 0 5px;
+                font-size: 20px; /* 17px * 1.2 = 20px */
+                margin: 0 8px; /* 7px * 1.2 = 8px */
             }
         }
 
         @media (max-width: 480px) {
             .cta-button {
-                min-width: 150px;
-                height: 33px;
-                font-size: 11px;
-                padding: 7px 18px;
+                min-width: 230px;
+                height: 50px;
+                font-size: 18px;
+                padding: 13px 43px;
             }
             
             .gift-icon {
-                font-size: 12px;
-                margin: 0 4px;
+                font-size: 20px;
+                margin: 0 8px;
             }
         }
     </style>
