@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YES2WIN - Get RM10 Now</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1654052201935145');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1654052201935145&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
         
@@ -64,7 +83,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            margin-top: 378px; /* Desktop: 10cm = 378px */
+            margin-top: 378px; /* 10cm down for desktop */
         }
 
         .cta-button {
@@ -173,33 +192,33 @@
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .cta-container {
-                margin-top: 378px; /* Mobile: also 10cm = 378px */
+                margin-top: 378px; /* 10cm down for mobile */
             }
             
             .cta-button {
-                min-width: 230px; /* 20% larger: 192px * 1.2 = 230px */
-                height: 50px; /* 20% larger: 42px * 1.2 = 50px */
-                font-size: 18px; /* 20% larger: 15px * 1.2 = 18px */
-                padding: 12px 43px; /* Adjusted padding for larger size */
+                min-width: 230px; /* 20% larger: 192px * 1.2 */
+                height: 50px; /* 20% larger: 42px * 1.2 */
+                font-size: 18px; /* 20% larger: 15px * 1.2 */
+                padding: 13px 43px; /* 20% larger */
             }
             
             .gift-icon {
-                font-size: 20px; /* 20% larger: 17px * 1.2 ≈ 20px */
-                margin: 0 8px; /* Slightly larger margin */
+                font-size: 20px; /* 20% larger: 17px * 1.2 */
+                margin: 0 8px;
             }
         }
 
         @media (max-width: 480px) {
             .cta-button {
-                min-width: 230px; /* Keep 20% larger size */
-                height: 50px;
-                font-size: 18px;
-                padding: 12px 43px;
+                min-width: 220px;
+                height: 48px;
+                font-size: 16px;
+                padding: 12px 40px;
             }
             
             .gift-icon {
-                font-size: 20px;
-                margin: 0 8px;
+                font-size: 18px;
+                margin: 0 7px;
             }
         }
     </style>
@@ -217,6 +236,12 @@
 
     <script>
         function handleCTAClick(event) {
+            // Track Contact event with Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact');
+                console.log('Facebook Pixel Contact event tracked');
+            }
+            
             // Add click handling logic here
             console.log('CTA button clicked - Redirecting to YES2WIN Official!');
             
